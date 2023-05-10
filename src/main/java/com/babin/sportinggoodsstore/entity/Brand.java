@@ -1,6 +1,6 @@
 package com.babin.sportinggoodsstore.entity;
 
-// класс категорий
+// класс брендов товара
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -13,10 +13,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name="categories")
-public class Category {
+@Table(name="brands")
+public class Brand {
 
-    private static final String SEQ_NAME = "category_seq";
+    private static final String SEQ_NAME = "brand_seq";
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQ_NAME)
