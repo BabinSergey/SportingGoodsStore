@@ -15,7 +15,7 @@ create table users
         phone varchar(255),
         role varchar(255),
         surname varchar(255),
-        bucket_id bigint,
+--         bucket_id bigint,
         primary key (id)
     );
 
@@ -46,9 +46,9 @@ alter table if exists buckets
     add constraint buckets_fk_users
         foreign key (user_id) references users;
 
-alter table if exists users
-    add constraint users_fk_buckets
-        foreign key (bucket_id) references buckets;
+-- alter table if exists users
+--     add constraint users_fk_buckets
+--         foreign key (bucket_id) references buckets;
 
 -- ORDER_DETAILS
 DROP SEQUENCE IF EXISTS order_details_seq;

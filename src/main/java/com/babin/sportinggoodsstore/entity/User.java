@@ -1,10 +1,11 @@
 package com.babin.sportinggoodsstore.entity;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 // класс пользователя
 
@@ -32,7 +33,7 @@ public class User {
     private boolean locked;                       // Заблокированный или нет
     @Enumerated(EnumType.STRING)                  // Роль
     private Role role;
-    @OneToOne(cascade = CascadeType.REMOVE)       // Один пользователь одна корзина
+    @OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE)       // Один пользователь одна корзина
     private Bucket bucket;
 
 }
