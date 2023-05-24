@@ -1,4 +1,4 @@
-package com.babin.sportinggoodsstore.entity;
+package com.babin.sportinggoodsstore.model;
 
 // класс продукта
 
@@ -30,20 +30,20 @@ public class Product {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "products_categories",
             joinColumns =  @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "categories_id"))
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
     private List<Category> categories;
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "products_brands",
+    @JoinTable(name = "products_brand",
             joinColumns =  @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "brands_id"))
+            inverseJoinColumns = @JoinColumn(name = "brand_id"))
     private List<Brand> brands;
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "products_colors",
+    @JoinTable(name = "products_color",
             joinColumns =  @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "colors_id"))
     private List<Colors> colors;
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "products_colors",
+    @JoinTable(name = "products_color",
             joinColumns =  @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "sizes_id"))
     private List<Sizes> sizes;

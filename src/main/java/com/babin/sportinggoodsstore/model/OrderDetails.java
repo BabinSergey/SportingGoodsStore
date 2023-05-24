@@ -1,4 +1,4 @@
-package com.babin.sportinggoodsstore.entity;
+package com.babin.sportinggoodsstore.model;
 
 // класс детали заказа
 
@@ -24,7 +24,7 @@ public class OrderDetails {
     @SequenceGenerator(name = SEQ_NAME, sequenceName = SEQ_NAME, allocationSize = 1)
     private Long id;
     @ManyToOne                                // множество деталий к заказу
-    @JoinColumn(name = "orders_id")
+    @JoinColumn(name = "order_id")
     private Order order;
     @ManyToOne                                // множество товаров в заказе
     @JoinColumn(name = "product_id")
@@ -32,4 +32,10 @@ public class OrderDetails {
     private BigDecimal amount;                // количество
     private BigDecimal price;                 // цена
 
+    public OrderDetails(Order order, Product product, Long amount) {
+        this.order = order;
+        this.product = product;
+        this.amount = new BigDecimal(amount);
+        this.price = new BigDecimal(String.valueOf(product.getPrice()));
+    }
 }

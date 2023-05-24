@@ -1,4 +1,4 @@
-package com.babin.sportinggoodsstore.entity;
+package com.babin.sportinggoodsstore.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,7 +17,7 @@ import javax.persistence.*;
 @Table(name="users")
 public class User {
 
-    private static final String SEQ_NAME = "user_seq"; // переменная последовательности
+    private static final String SEQ_NAME = "user_seq"; // название последовательности
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQ_NAME)

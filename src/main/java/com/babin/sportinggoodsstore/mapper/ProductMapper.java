@@ -1,7 +1,7 @@
 package com.babin.sportinggoodsstore.mapper;
 
 import com.babin.sportinggoodsstore.dto.ProductDTO;
-import com.babin.sportinggoodsstore.entity.Product;
+import com.babin.sportinggoodsstore.model.Product;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -17,7 +17,7 @@ public interface ProductMapper {
     @InheritInverseConfiguration
     ProductDTO fromProduct(Product product);
 
-    List<Product> toProductList(List<ProductDTO> productDtos);
+    List<Product> toProductList(List<ProductDTO> productDTOS);
 
     List<ProductDTO> fromProductList(List<Product> products);
 

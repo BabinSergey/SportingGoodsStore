@@ -4,42 +4,42 @@
   <meta charset="UTF-8">
   <title>Product list</title>
   <!--STOMP-->
-<!--  <script src="/webjars/sockjs-client/sockjs.min.js"></script>-->
-<!--  <script src="/webjars/stomp-websocket/stomp.min.js"></script>-->
+  <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+  <script src="/webjars/stomp-websocket/stomp.min.js"></script>
 
-<!--  &lt;!&ndash;app.js dependance: jquery&ndash;&gt;-->
-<!--  <script src="/webjars/jquery/jquery.min.js"></script>-->
-<!--  <script src="/product.js"></script>-->
+<!--  app.js dependance: jquery-->
+  <script src="/webjars/jquery/jquery.min.js"></script>
+  <script src="/product.js"></script>
 </head>
 <body>
 <div th:insert="~{fragments/menu :: #nav-menu}"></div>
 
 <table border="1" align="center" id="table">
   <tr>
-    <td>Title</td>
-    <td>Price</td>
+    <td>Название</td>
+    <td>Цена</td>
     <td></td>
   </tr>
   <tr th:each="product : ${products}">
-    <td th:text="${product.title}">Cheese</td>
+    <td th:text="${product.title}">Футболка</td>
     <td th:text="${product.price}">12.0</td>
-    <td><a th:href="@{/products/{id}/bucket(id=${product.id})}">Add to bucket</a></td>
+    <td><a th:href="@{/products/{id}/bucket(id=${product.id})}">Добавить в корзину</a></td>
   </tr>
 </table>
 
-<!--<form style="text-align: center">-->
-<!--  <table align="center">-->
-<!--    <tr>-->
-<!--      <td>Title</td>-->
-<!--      <td><input type="text" id="title"></td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <td>Price</td>-->
-<!--      <td><input type="number" id="price"></td>-->
-<!--    </tr>-->
-<!--  </table>-->
-<!--  <button id="send" type="submit">Submit</button>-->
-<!--</form>-->
+<form sec:authorize="hasAnyAuthority('ADMIN')" style="text-align: center">
+  <table align="center">
+    <tr>
+      <td>Название</td>
+      <td><input type="text" id="title"></td>
+    </tr>
+    <tr>
+      <td>Цена</td>
+      <td><input type="number" id="price"></td>
+    </tr>
+  </table>
+  <button id="send" type="submit">Добавить</button>
+</form>
 
 </body>
 </html>

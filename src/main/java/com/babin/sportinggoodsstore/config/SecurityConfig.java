@@ -1,6 +1,6 @@
 package com.babin.sportinggoodsstore.config;
 
-import com.babin.sportinggoodsstore.entity.Role;
+import com.babin.sportinggoodsstore.model.Role;
 import com.babin.sportinggoodsstore.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +20,7 @@ import javax.persistence.Basic;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(securedEnabled = true)
+@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true, jsr250Enabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private UserService userService;
@@ -51,8 +51,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/ws").permitAll()
                 .antMatchers("/users").hasAnyAuthority(Role.ADMIN.name()) // посмотреть список пользователей может только админ
-                .antMatchers("/users/new").hasAuthority(Role.ADMIN.name())
+//                .antMatchers("/users/new").hasAuthority(Role.ADMIN.name())
                 .anyRequest().permitAll()
                 .and()
                     .formLogin()

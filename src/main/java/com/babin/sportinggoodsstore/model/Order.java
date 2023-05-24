@@ -1,4 +1,4 @@
-package com.babin.sportinggoodsstore.entity;
+package com.babin.sportinggoodsstore.model;
 
 // класс заказа
 
@@ -36,7 +36,7 @@ public class Order {
     private User user;
     private BigDecimal sum;                          // сумма заказа
     private String address;                          // адрес
-    @OneToMany(cascade = CascadeType.ALL)            // один заказ для множества продуктов
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)    // один заказ для множества продуктов
     private List<OrderDetails> details;
     @Enumerated(EnumType.STRING)
     private OrderStatus status;

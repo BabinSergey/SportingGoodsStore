@@ -1,32 +1,16 @@
 package com.babin.sportinggoodsstore.controllers;
 
-import com.babin.sportinggoodsstore.service.SessionObjectHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.servlet.http.HttpSession;
-import java.util.UUID;
 
 // Main controller
 
 @Controller
 public class MainController {
 
-    private final SessionObjectHolder sessionObjectHolder;
-
-    public MainController(SessionObjectHolder sessionObjectHolder) {
-        this.sessionObjectHolder = sessionObjectHolder;
-    }
     @RequestMapping({"", "/"})
-    public String index(Model model, HttpSession httpSession) {
-        model.addAttribute("amountClicks", sessionObjectHolder.getAmountClicks());
-        if(httpSession.getAttribute("myID") == null){
-            String uuid = UUID.randomUUID().toString();
-            httpSession.setAttribute("myID", uuid);
-            System.out.println("Generated UUID -> " + uuid);
-        }
-        model.addAttribute("uuid", httpSession.getAttribute("myID"));
+    public String index() {
         return "index";
     }
 

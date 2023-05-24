@@ -1,6 +1,6 @@
-package com.babin.sportinggoodsstore.entity;
+package com.babin.sportinggoodsstore.model;
 
-// класс размеров товара
+// класс цветов товара
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,9 +14,9 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name="sizes")
-public class Sizes {
-    private static final String SEQ_NAME = "size_seq";
+@Table(name="colors")
+public class Colors {
+    private static final String SEQ_NAME = "color_seq";
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQ_NAME)

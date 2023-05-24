@@ -7,11 +7,11 @@
 <body>
 <div th:insert="~{fragments/menu :: #nav-menu}"></div>
 
-<h1>User profile</h1>
+<h1>Личный профиль</h1>
 <form th:action="@{/users/profile}" th:object="${user}" method="post">
     <table border="1">
         <tr>
-            <td>Name</td>
+            <td>Имя</td>
             <td><input type="text" th:field="*{username}"/></td>
         </tr>
         <tr>
@@ -19,15 +19,15 @@
             <td><input type="email" th:field="*{email}"/></td>
         </tr>
         <tr>
-            <td>Password</td>
+            <td>Пароль</td>
             <td><input type="password" th:field="*{password}"/></td>
         </tr>
         <tr>
-            <td>Matching password</td>
+            <td>Повторить пароль</td>
             <td><input type="password" th:field="*{matchingPassword}"/></td>
         </tr>
     </table>
-    <button type="submit">Save</button>
+    <button type="submit">Сохранить</button>
 </form>
 </body>
 </html>

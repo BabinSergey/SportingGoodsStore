@@ -1,6 +1,6 @@
 package com.babin.sportinggoodsstore.dto;
 
-import com.babin.sportinggoodsstore.entity.Product;
+import com.babin.sportinggoodsstore.model.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

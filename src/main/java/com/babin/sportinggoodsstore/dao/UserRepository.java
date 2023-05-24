@@ -1,6 +1,6 @@
 package com.babin.sportinggoodsstore.dao;
 
-import com.babin.sportinggoodsstore.entity.User;
+import com.babin.sportinggoodsstore.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {

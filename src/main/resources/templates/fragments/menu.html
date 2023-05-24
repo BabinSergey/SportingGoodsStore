@@ -10,11 +10,11 @@
     <td align="center">
       <table>
         <tr>
-          <td>Menu -></td>
-          <td><a th:href="@{/}">Home</a></td>
-          <td><a th:href="@{/products}">Products</a></td>
-          <td sec:authorize="hasAnyAuthority('ADMIN')"><a th:href="@{/users}">Users</a></td>
-          <td sec:authorize="isAuthenticated()"><a th:href="@{/bucket}">Bucket</a></td>
+          <td>Меню -></td>
+          <td><a th:href="@{/}">Дом</a></td>
+          <td><a th:href="@{/products}">Продукт</a></td>
+          <td sec:authorize="hasAnyAuthority('ADMIN')"><a th:href="@{/users}">Пользователи</a></td>
+          <td sec:authorize="isAuthenticated()"><a th:href="@{/bucket}">Корзина</a></td>
         </tr>
       </table>
     </td>
@@ -24,13 +24,13 @@
           Привет, <a th:href="@{/users/profile}"><span sec:authentication="principal.username">Сергей</span></a>
         </div>
         <div>
-          <a th:href="@{/logout}">Logout</a>
+          <a th:href="@{/logout}">Выйти</a>
         </div>
       </div>
 
       <div sec:authorize="!isAuthenticated()">
         <div>
-          Hello, Unknown. Please <a th:href="@{/login}">Login</a>
+          Привет, пользователь <a th:href="@{/login}">Войти</a>
         </div>
       </div>
     </td>

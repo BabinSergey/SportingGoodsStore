@@ -1,4 +1,4 @@
-package com.babin.sportinggoodsstore.entity;
+package com.babin.sportinggoodsstore.model;
 
 // класс брендов товара
 

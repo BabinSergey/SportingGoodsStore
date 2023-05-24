@@ -2,8 +2,8 @@ package com.babin.sportinggoodsstore.service;
 
 import com.babin.sportinggoodsstore.dao.UserRepository;
 import com.babin.sportinggoodsstore.dto.UserDTO;
-import com.babin.sportinggoodsstore.entity.Role;
-import com.babin.sportinggoodsstore.entity.User;
+import com.babin.sportinggoodsstore.model.Role;
+import com.babin.sportinggoodsstore.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,7 +12,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -94,6 +93,7 @@ public class UserServiceImpl implements  UserService{
             throw new RuntimeException("Не найден пользователь по имени " + dto.getUsername());
         }
 
+        // проверки на наличие изменений
         boolean changed = false;
         if(dto.getPassword() != null && !dto.getPassword().isEmpty()){
             savedUser.setPassword(passwordEncoder.encode(dto.getPassword()));
@@ -112,20 +112,4 @@ public class UserServiceImpl implements  UserService{
     public void save(User user) {
         userRepository.save(user);
     }
-
-//    @Override
-//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//        User user = userRepository.findFirstByName(username);
-//        if(user == null){
-//            throw new UsernameNotFoundException("User not found with name: " + username);
-//        }
-//
-//        List<GrantedAuthority> roles = new ArrayList<>();
-//        roles.add(new SimpleGrantedAuthority(user.getRole().name()));
-//
-//        return new org.springframework.security.core.userdetails.User(
-//                user.getName(),
-//                user.getPassword(),
-//                roles);
-//    }
 }

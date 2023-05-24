@@ -1,7 +1,7 @@
 package com.babin.sportinggoodsstore.service;
 
 import com.babin.sportinggoodsstore.dto.UserDTO;
-import com.babin.sportinggoodsstore.entity.User;
+import com.babin.sportinggoodsstore.model.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;

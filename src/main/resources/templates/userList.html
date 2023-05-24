@@ -9,7 +9,7 @@
 
 <table border="1">
   <tr>
-    <td>Name</td>
+    <td>Имя</td>
     <td>Email</td>
   </tr>
   <tr th:each="user : ${users}">
@@ -17,7 +17,7 @@
     <td th:text="${user.email}">Testmail</td>
   </tr>
 </table>
-<a th:href="@{/users/new}">Add new</a>
+<a th:href="@{/users/new}">Новый пользователь</a>
 
 </body>
 </html>
